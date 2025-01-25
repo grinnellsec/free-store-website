@@ -9,6 +9,8 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  
+  // For documentation, look here https://webpack.js.org/guides/asset-management/.
   module: {
     rules: [
       {
