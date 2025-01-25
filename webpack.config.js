@@ -1,4 +1,5 @@
-// Use npx webpack --config webpack.config.js to build.
+// Documentation: https://webpack.js.org/configuration
+// Use 'npx webpack --config webpack.config.js' or 'npm run build' to build.
 
 const path = require('path');
 
