@@ -8,5 +8,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@mnfst/sdk": "^1.1.0"
+  }
 }
