@@ -12,3 +12,5 @@ const items = await manifest.from('items').find();
 for (let item of items.data) {
   console.log(item.name);
 }
+
+const itemList = document.getElementById("item-list");
