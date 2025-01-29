@@ -1,6 +1,8 @@
 import Manifest from '@mnfst/sdk';
 import './style.css';
 
+
+// POPUP Functions
 window.showPopup = () => {
   document.getElementById("popup").style.display = "block";
 }
