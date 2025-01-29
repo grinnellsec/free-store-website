@@ -54,11 +54,11 @@ li {
   box-shadow: 1px 1px 3px var(--outline-brown);
 }
 .item-title {
-  margin: 7px 5px 0px 5px;
+  width: 100%;
+  margin: 2px 5px 0px 5px;
   padding: 4px 10px 2px 10px;
   font-size: 11px;
   font-family: 'Courier New', Courier, monospace;
-  
   border: 1.5px solid var(--outline-brown);
   border-radius: 7px;
   /* box-shadow: .1px .1px 2px var(--outline-brown); */
@@ -102,7 +102,7 @@ li {
   background-color: var(--light-brown);
 }
 .popup {
-  display: none;
+  /* display: none; */
   position: absolute;
   left: 50%;
   width: 200px;
@@ -115,6 +115,18 @@ li {
   box-shadow: .1px .1px 2px var(--outline-brown);
   background-color: rgb(86, 67, 67);
   font-size: 12px; /* reset the text size */
+}
+.popup-exit {
+  cursor: pointer;
+  margin-top: 2px;
+  padding: 4px 10px 2px 10px;
+  font-size: 11px;
+  font-family: 'Courier New', Courier, monospace;
+  border: 1.5px solid var(--outline-brown);
+  border-radius: 7px;
+  /* box-shadow: .1px .1px 2px var(--outline-brown); */
+  color: var(--bright-brown);
+  background-color: var(--outline-brown);
 }
 
 @media screen and (max-width: 289px) { ul { width: 150px; } }
