@@ -20,6 +20,7 @@ module.exports = {
       title: 'Item',
       filename: 'item.html',
       template: "./src/item.html",
+      inject: false,
     }),
   ],
 
