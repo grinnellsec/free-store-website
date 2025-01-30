@@ -1,6 +1,18 @@
 import Manifest from '@mnfst/sdk';
 import './style.css';
 
+const itemList = document.getElementById("item-list");
+
+// ITEM functions
+async function addItem() {
+  let newItem = document.createElement('li');
+  const resp = await fetch("item.html");
+  const html = await resp.text();
+  newItem.insertAdjacentHTML("beforeend", html);
+  itemList.appendChild(newItem);
+}
+
+window.addItem = () => {addItem();} // Dev Tool!!!
 
 // POPUP Functions
 window.showPopup = () => {
@@ -11,7 +23,7 @@ window.hidePopup = () => {
   document.getElementById("popup").style.display = "none";
 } 
 
-const itemList = document.getElementById("item-list");
+
 
 // Initialize client with default backend URL: http://localhost:1111.
 const manifest = new Manifest();

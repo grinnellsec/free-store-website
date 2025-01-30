@@ -16,6 +16,11 @@ module.exports = {
       title: 'Free Store',
       template: "./src/index.html",
     }),
+    new HtmlWebpackPlugin({
+      title: 'Item',
+      filename: 'item.html',
+      template: "./src/item.html",
+    }),
   ],
 
   output: {
