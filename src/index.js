@@ -30,7 +30,7 @@ async function addItem(name, num) {
   // Add the list element to the fragment
   fragment.appendChild(newItem);
   // Add defining characteristics
-  newItem.setAttribute('id', String(num));
+  newItem.childNodes[1].firstChild.setAttribute('onclick', "showPopup(" + String(num) + ")");
   newItem.firstChild.firstChild.textContent=name;
   itemList.appendChild(fragment);
 }
@@ -40,10 +40,8 @@ function clearItems() {
 }
 
 function setItems() {
-  let counter = 0;
-  for (let item of items.data) {
-    addItem(item.name, counter);
-    counter += 1;
+  for (let i = items.data.length - 1; i >= 0; i--) {
+    addItem(items.data[i].name, i);
   }
 }
 
@@ -57,11 +55,16 @@ async function refreshItems() {
 }
 
 // POPUP Functions --------------------------------------
-window.showPopup = () => {
+window.showPopup = (index) => {
+  
   document.getElementById("popup").style.display = "block";
+  // console.log(popup);
+  // popup.;
+  let title = items.data[index].name;
+  document.getElementById("popup-title").textContent=title;
 }
 
-window.hidePopup = () => {
+window.hidePopup = (index) => {
   document.getElementById("popup").style.display = "none";
 } 
 
@@ -72,3 +75,4 @@ window.refreshItems = () => {refreshItems();}
 
 
 console.log("running!");
+console.log(items.data);
