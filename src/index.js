@@ -73,6 +73,6 @@ window.addItem = (name, num) => {addItem(name, num);}
 window.setItems = () => {setItems();}
 window.refreshItems = () => {refreshItems();}
 
-
+refreshItems();
 console.log("running!");
 console.log(items.data);
