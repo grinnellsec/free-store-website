@@ -100,7 +100,21 @@ li {
   border: 1.5px solid var(--outline-brown);
   border-radius: 20px;
   box-shadow: .75px .75px 1px var(--outline-brown);
-  background-color: var(--light-brown);
+  background-color: var(--light-brown);  
+  transition: 175ms ease-in-out;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-weight: bold;
+  color: var(--outline-brown);
+  font-size: 9px;
+  padding: 2px 10px 0 10px;
+}
+.item-button:hover {
+  background-color: var(--outline-brown);
+  color: var(--bright-brown);
+}
+.item-button:active {
+  transform: translate(.75px, .75px);
+  box-shadow: none;
 }
 .popup {
   display: none;
