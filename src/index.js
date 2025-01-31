@@ -1,6 +1,8 @@
 import Manifest from '@mnfst/sdk';
 import './style.css';
 
+import Favicon from './seclogo.png';
+
 const itemList = document.getElementById("item-list");
 
 // Initialize client with default backend URL: http://localhost:1111.
@@ -72,6 +74,14 @@ window.hidePopup = (index) => {
 window.addItem = (name, num) => {addItem(name, num);}
 window.setItems = () => {setItems();}
 window.refreshItems = () => {refreshItems();}
+
+
+// On load -----------------------------------------------
+// Set Favicon
+let fav = document.createElement('link');
+fav.rel = 'shortcut icon';
+fav.href = Favicon;
+document.head.appendChild(fav);
 
 refreshItems();
 console.log("running!");
