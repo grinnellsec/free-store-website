@@ -224,7 +224,7 @@ li {
   width: 50px;
   border: 1.5px solid var(--outline-brown);
   border-radius: 10px;
-  box-shadow: .75px .75px 1px var(--outline-brown);
+  /* box-shadow: .75px .75px 1px var(--outline-brown); */
   background-color: var(--outline-brown);  
   transition: 175ms ease-in-out;
   font-family: "Lucida Console", "Courier New", monospace;
