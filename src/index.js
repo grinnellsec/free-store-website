@@ -94,7 +94,7 @@ async function refreshItems() {
 window.showPopup = (index) => {
   let popup = document.getElementById("popup");
 
-  popup.insertAdjacentHTML("beforeend", itemHtml);
+  // popup.insertAdjacentHTML("beforeend", itemHtml);
 
   let title = items.data[index].name;
   document.getElementById("popup-title").textContent=title;
