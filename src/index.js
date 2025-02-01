@@ -9,6 +9,8 @@ const itemList = document.getElementById("item-list");
 // Initialize client with default backend URL: http://localhost:1111.
 const manifest = new Manifest();
 
+await manifest.login('users', 'sgasec@studentorg.grinnell.edu', 'sgasec@studentorg.grinnell.edu');
+
 // Get all items.
 let items = await manifest.from('items').find();
 
@@ -37,6 +39,27 @@ async function loadFileText(filename) {
 // ITEM functions --------------------------------------
 
 /**
+ * Checks out an item.
+ * 
+ * @param {Number} index 
+ *    The index of the item.
+ * @param {String} tag 
+ *    The tag of the item.
+ * @returns 
+ *    True if item tag matches tag.
+ *    False otherwise.
+ */
+async function checkoutItem(index, tag) {
+  let item = items.data[index];
+  if (item.tag === tag) {
+    let id = item.id;
+    await manifest.from('items').delete(id);
+    return true;
+  }
+  return false;
+}
+
+/**
  * Adds an item to the item-list.
  * 
  * @param {String} name 
@@ -45,7 +68,13 @@ async function loadFileText(filename) {
  *    The index number of the item.
  */
 async function addItem(name, num) {
-  let imageSrc = items.data[num].image.small;
+  let imageSrc = (function() {
+    let image = items.data[num].image;
+    if (image) {
+      return image.small;
+    }
+    return null;
+  })();
   // Create a DocumentFragment to append the newItem to.
   // This allows setting properties of child elements
   // without parsing the string.
@@ -58,6 +87,9 @@ async function addItem(name, num) {
   fragment.appendChild(newItem);
   // Add defining characteristics
   newItem.childNodes[1].firstChild.setAttribute('onclick', "showPopupItem(" + String(num) + ")");
+  if (!imageSrc) {
+    newItem.childNodes[1].firstChild.setAttribute('class', 'item-image invalidItemImageSrc');
+  }
   newItem.childNodes[1].firstChild.setAttribute('src', imageSrc);
   newItem.childNodes[2].childNodes[2].setAttribute('onclick', "showPopupInput(" + String(num) + ")");
   newItem.firstChild.firstChild.textContent=name;
@@ -104,7 +136,13 @@ window.showPopupItem = (index) => {
 
   let title = items.data[index].name;
   let notes = items.data[index].notes;
-  let imageSrc = items.data[index].image.large;
+  let imageSrc = (function() {
+    let image = items.data[index].image;
+    if (image) {
+      return image.large;
+    }
+    return null;
+  })();
   document.getElementById("popup-title").textContent=title;
   document.getElementById("popup-checkout").setAttribute('onclick', "showPopupInput(" + String(index) + ")");
   document.getElementById("popup-notes").insertAdjacentHTML("beforeend", notes);
@@ -125,6 +163,7 @@ window.showPopupInput = (index) => {
 
   let title = items.data[index].name;
   document.getElementById("popup-title").textContent=title;
+  document.getElementById("popup-id-button").setAttribute('onclick', "inputCheckout(" + String(index) + ")");
   
   popup.style.display = "block";
 }
@@ -143,10 +182,26 @@ window.hidePopup = () => {
   document.getElementById("popup").style.display = "none";
 } 
 
+window.inputCheckout = async (index) => {
+  let tag = document.getElementById('popup-input-tag').value;
+  console.log(tag);
+  if (await checkoutItem(index, tag) === true) {
+    window.hidePopup();
+    refreshItems();
+  } else {
+    let errorText = document.createElement('p');
+    errorText.textContent = "Invalid tag. Please try again."
+    errorText.style["color"] = "red";
+    document.getElementById('popup-input-text').appendChild(errorText);
+    console.log("failed");
+  }
+}
+
 // DEV TOOLS --------------------------------------
 window.addItem = (name, num) => {addItem(name, num);}
 window.setItems = () => {setItems();}
 window.refreshItems = () => {refreshItems();}
+window.checkoutItem = (index, tag) => {checkoutItem(index, tag)}
 
 // ON LOAD -----------------------------------------------
 // Set Favicon
