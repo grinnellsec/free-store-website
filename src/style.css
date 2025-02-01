@@ -228,6 +228,10 @@ li {
 .popup-text p {
   margin: 0px;
 }
+.popup-error-text {
+  color: red;
+  display: none;
+}
 .popup-id-button {
   cursor: pointer;
   background-size: cover;

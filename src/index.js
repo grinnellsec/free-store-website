@@ -183,17 +183,13 @@ window.hidePopup = () => {
 } 
 
 window.inputCheckout = async (index) => {
+  document.getElementById('popup-input-error').style["display"] = "none";
   let tag = document.getElementById('popup-input-tag').value;
-  console.log(tag);
   if (await checkoutItem(index, tag) === true) {
     window.hidePopup();
     refreshItems();
   } else {
-    let errorText = document.createElement('p');
-    errorText.textContent = "Invalid tag. Please try again."
-    errorText.style["color"] = "red";
-    document.getElementById('popup-input-text').appendChild(errorText);
-    console.log("failed");
+    document.getElementById('popup-input-error').style["display"] = "inline";
   }
 }
 
