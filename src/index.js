@@ -207,5 +207,3 @@ fav.href = Favicon;
 document.head.appendChild(fav);
 
 refreshItems();
-console.log("running!");
-console.log(items.data);
