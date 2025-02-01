@@ -45,6 +45,7 @@ async function loadFileText(filename) {
  *    The index number of the item.
  */
 async function addItem(name, num) {
+  let imageSrc = items.data[num].image.small;
   // Create a DocumentFragment to append the newItem to.
   // This allows setting properties of child elements
   // without parsing the string.
@@ -57,6 +58,7 @@ async function addItem(name, num) {
   fragment.appendChild(newItem);
   // Add defining characteristics
   newItem.childNodes[1].firstChild.setAttribute('onclick', "showPopupItem(" + String(num) + ")");
+  newItem.childNodes[1].firstChild.setAttribute('src', imageSrc);
   newItem.childNodes[2].childNodes[2].setAttribute('onclick', "showPopupInput(" + String(num) + ")");
   newItem.firstChild.firstChild.textContent=name;
   itemList.appendChild(fragment);
@@ -102,9 +104,11 @@ window.showPopupItem = (index) => {
 
   let title = items.data[index].name;
   let notes = items.data[index].notes;
+  let imageSrc = items.data[index].image.large;
   document.getElementById("popup-title").textContent=title;
   document.getElementById("popup-checkout").setAttribute('onclick', "showPopupInput(" + String(index) + ")");
   document.getElementById("popup-notes").insertAdjacentHTML("beforeend", notes);
+  document.getElementById("popup-image").setAttribute('src', imageSrc);;
   popup.style.display = "block";
 }
 
