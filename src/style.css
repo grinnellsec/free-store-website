@@ -137,7 +137,7 @@ li {
   left: 50%;
   width: 300px;
   /* height: 375px; */
-  transform: translate(-50%, 20%);
+  transform: translate(-50%, 5%);
   margin-inline: auto;
   z-index: 9;
   border: 5px solid var(--outline-brown);
