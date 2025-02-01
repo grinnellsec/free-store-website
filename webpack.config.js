@@ -22,6 +22,18 @@ module.exports = {
       template: "./src/item.html",
       inject: false,
     }),
+    new HtmlWebpackPlugin({
+      title: 'Popup Item',
+      filename: 'popup-item.html',
+      template: "./src/popup-item.html",
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Popup Input',
+      filename: 'popup-input.html',
+      template: "./src/popup-input.html",
+      inject: false,
+    }),
   ],
 
   output: {

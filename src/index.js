@@ -14,6 +14,8 @@ let items = await manifest.from('items').find();
 
 // item.html
 let itemHtml = await loadFileText('item.html');
+let popupItemHtml = await loadFileText('popup-item.html');
+let popupInputHtml = await loadFileText('popup-input.html');
 
 
 // HELPERS ------------------------------
@@ -54,7 +56,8 @@ async function addItem(name, num) {
   // Add the list element to the fragment
   fragment.appendChild(newItem);
   // Add defining characteristics
-  newItem.childNodes[1].firstChild.setAttribute('onclick', "showPopup(" + String(num) + ")");
+  newItem.childNodes[1].firstChild.setAttribute('onclick', "showPopupItem(" + String(num) + ")");
+  newItem.childNodes[2].childNodes[2].setAttribute('onclick', "showPopupInput(" + String(num) + ")");
   newItem.firstChild.firstChild.textContent=name;
   itemList.appendChild(fragment);
 }
@@ -91,15 +94,42 @@ async function refreshItems() {
  * @param {Number} index 
  *    The index value of the item
  */
-window.showPopup = (index) => {
+window.showPopupItem = (index) => {
   let popup = document.getElementById("popup");
+  clearPopup();
 
-  // popup.insertAdjacentHTML("beforeend", itemHtml);
+  popup.insertAdjacentHTML("beforeend", popupItemHtml);
+
+  let title = items.data[index].name;
+  let notes = items.data[index].notes;
+  document.getElementById("popup-title").textContent=title;
+  document.getElementById("popup-checkout").setAttribute('onclick', "showPopupInput(" + String(index) + ")");
+  document.getElementById("popup-notes").textContent=notes;
+  popup.style.display = "block";
+}
+
+/**
+ * Show the popup (input setting).
+ * @param {Number} index 
+ *    The index value of the item
+ */
+window.showPopupInput = (index) => {
+  let popup = document.getElementById("popup");
+  clearPopup();
+
+  popup.insertAdjacentHTML("beforeend", popupInputHtml);
 
   let title = items.data[index].name;
   document.getElementById("popup-title").textContent=title;
   
   popup.style.display = "block";
+}
+
+/**
+ * Clears the popup.
+ */
+window.clearPopup = () => {
+  document.getElementById("popup").replaceChildren();
 }
 
 /**

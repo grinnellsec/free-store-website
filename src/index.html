@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=width, initial-scale=1.0">
-    <title>Free Store</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
 
-  <body>
-    <header>
-      <div class="banner">
-        <span class="banner">free store</span>
-      </div>
-    </header>
-    <main>
-      <div class="popup" id="popup">
-        <div class="popup-div p-title-div">
-          <p class="popup-title" id="popup-title">hello</p>
-          <button class="popup-exit" onclick="hidePopup()">x</button>
-        </div>
-        <div class="popup-div">
-          <p class="popup-text">Input the ID of the item to checkout.</p>
-        </div>
-        <div class="popup-div">
-          <input type="text" name="tag" class="popup-input">
-          <button class="popup-id-button">></button>
-        </div>
-      </div>
-      <ul id="item-list">
-      </ul>
-    </main>
-  </body>
+<head>
+  <meta name="viewport" content="width=width, initial-scale=1.0">
+  <title>Free Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="banner">
+      <span class="banner">free store</span>
+    </div>
+  </header>
+  <main>
+    <div class="popup" id="popup"></div>
+    <ul id="item-list"></ul>
+  </main>
+</body>
+
 </html>
