@@ -195,10 +195,10 @@ window.inputCheckout = async (index) => {
 }
 
 // DEV TOOLS --------------------------------------
-window.addItem = (name, num) => {addItem(name, num);}
-window.setItems = () => {setItems();}
-window.refreshItems = () => {refreshItems();}
-window.checkoutItem = (index, tag) => {checkoutItem(index, tag)}
+// window.addItem = (name, num) => {addItem(name, num);}
+// window.setItems = () => {setItems();}
+// window.refreshItems = () => {refreshItems();}
+// window.checkoutItem = (index, tag) => {checkoutItem(index, tag)}
 
 // ON LOAD -----------------------------------------------
 // Set Favicon
