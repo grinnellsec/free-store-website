@@ -92,6 +92,7 @@ async function addItem(name, num) {
   }
   newItem.childNodes[1].firstChild.setAttribute('src', imageSrc);
   newItem.childNodes[2].childNodes[2].setAttribute('onclick', "showPopupInput(" + String(num) + ")");
+  newItem.childNodes[2].childNodes[0].setAttribute('onclick', "showPopupItem(" + String(num) + ")");
   newItem.firstChild.firstChild.textContent=name;
   itemList.appendChild(fragment);
 }
