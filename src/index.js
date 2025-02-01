@@ -104,7 +104,7 @@ window.showPopupItem = (index) => {
   let notes = items.data[index].notes;
   document.getElementById("popup-title").textContent=title;
   document.getElementById("popup-checkout").setAttribute('onclick', "showPopupInput(" + String(index) + ")");
-  document.getElementById("popup-notes").textContent=notes;
+  document.getElementById("popup-notes").insertAdjacentHTML("beforeend", notes);
   popup.style.display = "block";
 }
 

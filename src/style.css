@@ -227,6 +227,9 @@ li {
   width: 100%;
   min-height: 14px;
 }
+.popup-text p {
+  margin: 0px;
+}
 .popup-id-button {
   cursor: pointer;
   background-size: cover;
