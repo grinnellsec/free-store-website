@@ -8,7 +8,7 @@ The Free Store is a project at Grinnell College to re-use items that would other
 
 # About
 
-The frontend is built with webpack for [manifest.build](https://github.com/mnfst/manifest) dependencies. Otherwise, the website is built mostly with CSS and JavaScript.
+The frontend is built with webpack for [manifest.build](https://github.com/mnfst/manifest) dependencies. Otherwise, the website is built mostly with CSS and JavaScript. *Currently in alpha*.
 
 # Authors
  - gold-leo
