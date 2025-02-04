@@ -143,7 +143,6 @@ window.showPopupItem = (index) => {
   let imageSrc = (function() {
     let image = items.data[index].image;
     if (image) {
-      console.log(image);
       let url = image.large;
       return url;
     }
