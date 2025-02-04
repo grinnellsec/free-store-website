@@ -11,9 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@mnfst/sdk": "^1.1.0"
-  },
-  "devDependencies": {
+    "@mnfst/sdk": "^1.1.0",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",
