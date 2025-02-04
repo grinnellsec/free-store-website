@@ -11,7 +11,7 @@ const backendUrl = 'https://fs-backend-ykwpq.ondigitalocean.app'
 // Initialize client with default backend URL: http://localhost:1111.
 const manifest = new Manifest(backendUrl);
 
-await manifest.login('users', 'sgasec@studentorg.grinnell.edu', 'SevD4K&M9#^Smq9&');
+await manifest.login('users', 'sgasec@studentorg.grinnell.edu', 'SevD4K&M9#^Smq9&'); 
 
 // Get all items.
 let items = await manifest.from('items').find();
