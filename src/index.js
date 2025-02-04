@@ -6,10 +6,12 @@ import Favicon from './seclogo.png';
 // The list element of all items.
 const itemList = document.getElementById("item-list");
 
-// Initialize client with default backend URL: http://localhost:1111.
-const manifest = new Manifest();
+const backendUrl = 'https://fs-backend-ykwpq.ondigitalocean.app'
 
-await manifest.login('users', 'sgasec@studentorg.grinnell.edu', 'sgasec@studentorg.grinnell.edu');
+// Initialize client with default backend URL: http://localhost:1111.
+const manifest = new Manifest(backendUrl);
+
+await manifest.login('users', 'sgasec@studentorg.grinnell.edu', 'SevD4K&M9#^Smq9&');
 
 // Get all items.
 let items = await manifest.from('items').find();
@@ -71,7 +73,8 @@ async function addItem(name, num) {
   let imageSrc = (function() {
     let image = items.data[num].image;
     if (image) {
-      return image.small;
+      let url = image.small;
+      return url;
     }
     return null;
   })();
@@ -140,7 +143,9 @@ window.showPopupItem = (index) => {
   let imageSrc = (function() {
     let image = items.data[index].image;
     if (image) {
-      return image.large;
+      console.log(image);
+      let url = image.large;
+      return url;
     }
     return null;
   })();
