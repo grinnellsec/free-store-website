@@ -6,7 +6,7 @@ import Favicon from './seclogo.png';
 // The list element of all items.
 const itemList = document.getElementById("item-list");
 
-const backendUrl = 'https://fs-backend-ykwpq.ondigitalocean.app'
+const backendUrl = 'https://backend.freestore.earth';
 
 // Initialize client with default backend URL: http://localhost:1111.
 const manifest = new Manifest(backendUrl);
