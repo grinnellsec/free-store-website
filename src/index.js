@@ -48,8 +48,8 @@ async function loadFileText(filename) {
  * @param {String} tag 
  *    The tag of the item.
  * @returns 
- *    True if item tag matches tag.
- *    False otherwise.
+ *    true if item tag matches tag.
+ *    false otherwise.
  */
 async function checkoutItem(index, tag) {
   let item = items.data[index];
